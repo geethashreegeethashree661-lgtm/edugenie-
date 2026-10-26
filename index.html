@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduGenie AI Learning Assistant</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <main class="container">
+        <header>
+            <div class="logo">🎓</div>
+            <h1>EduGenie</h1>
+            <p>Your AI-powered Learning Assistant</p>
+        </header>
+
+        <form action="/ask" method="post">
+            <label for="task">Choose a learning task</label>
+            <select name="task" id="task">
+                <option value="qa">Question &amp; Answer</option>
+                <option value="explain">Explain a Topic</option>
+                <option value="quiz">Generate Quiz</option>
+                <option value="summary">Summarize Text</option>
+                <option value="learn">Learning Path</option>
+            </select>
+
+            <label for="question">Enter your question or text</label>
+            <textarea id="question" name="question"
+                placeholder="Type a question, topic, or passage here..." required>{{ question }}</textarea>
+
+            <button type="submit">Generate Answer ✨</button>
+        </form>
+
+        {% if result %}
+        <section class="result" aria-live="polite">
+            <h2>📘 Your Result</h2>
+            <div class="answer">{{ result }}</div>
+        </section>
+        {% endif %}
+
+        <footer>Learn smarter with EduGenie AI</footer>
+    </main>
+</body>
+</html>
