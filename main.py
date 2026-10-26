@@ -16,8 +16,12 @@ client = genai.Client(api_key=api_key) if api_key else None
 @app.get("/")
 async def home(request: Request):
     return templates.TemplateResponse(
-        "index.html",
-        {"request": request, "result": "", "question": ""}
+        request=request,
+        name="index.html",
+        context={
+            "result": "",
+            "question": ""
+        }
     )
 
 
